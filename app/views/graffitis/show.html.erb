@@ -15,7 +15,7 @@
  </tr>
  <tr>
   <td><strong>DOB:</strong></td>
-  <td><%= @graffiti.dob.to_formatted_s(:long) %></td>
+  <td><%= @graffiti.dob.to_formatted_s(:long) if @graffiti.dob.present? %></td>
  </tr>
  <tr>
   <td><strong>Location:</strong></td>
@@ -26,8 +26,8 @@
   <td><%= @graffiti.grafitti_dayinmonth
 # array lookup fails if month is blank
       if ( @graffiti.graffiti_month.present? )
-      then 
-        months.fetch(@graffiti.graffiti_month, "") 
+      then
+        months.fetch(@graffiti.graffiti_month, "")
       end
   @graffiti.grafitti_year %></td>
  </tr>

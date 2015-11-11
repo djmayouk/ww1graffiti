@@ -37,6 +37,16 @@ class GraffitisController < ApplicationController
 
   private
     def graffiti_params
-      params.require(:graffiti).permit(:surname, :forenames, :rank, :soldier_number, :location, :grafitti_year, :graffiti_month, :grafitti_dayinmonth, :dob, :survived_war, :notes)
+      params.require(:graffiti).permit(:surname,
+                                       :forenames,
+                                       :rank,
+                                       :soldier_number,
+                                       :location,
+                                       :grafitti_year,
+                                       :graffiti_month,
+                                       :grafitti_dayinmonth,
+                                       :dob,
+                                       :survived_war,
+                                       :notes)
     end
 end
