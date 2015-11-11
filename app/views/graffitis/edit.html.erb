@@ -1,0 +1,28 @@
+<h1>Edit record</h1>
+
+<%= render 'form' %>
+
+
+<% @graffiti.photos.each do |photo| %>
+  <%= form_for([@graffiti, photo]) do |g| %>
+  <p>
+    <%= g.label :link %>
+    <%= g.text_field :link %>
+    <%= g.submit('Update') %>
+    <%= link_to 'Delete', [photo.graffiti, photo],
+                 method: :delete,
+                 data: { confirm: 'Are you sure?' } %>
+  </p>
+  <% end %>
+<% end %>
+
+
+  <%= form_for([@graffiti, @graffiti.photos.build]) do |h| %>
+  <p>
+    <%= h.label :link %>
+    <%= h.text_field :link %>
+    <%= h.submit('Add') %>
+  </p>
+  <% end %>
+
+<%= link_to 'Back to index', graffitis_path %>

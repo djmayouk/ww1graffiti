@@ -1,0 +1,19 @@
+<h1>List of all graffiti</h1>
+
+<table>
+ <tr>
+  <th>Name</th>
+  <th>Location</th>
+ </tr>
+
+ <% @graffitis.each do |graffiti| %>
+  <tr>
+   <td><%= graffiti.surname %>, <%= graffiti.forenames %></td>
+   <td><%= graffiti.location %></td>
+   <td><%= link_to 'See full record', graffiti_path(graffiti) %></td>
+   <td><%= link_to 'Edit', edit_graffiti_path(graffiti) %></td>
+  </tr>
+ <% end %>
+</table>
+
+<%= link_to 'Add a record', new_graffiti_path %>

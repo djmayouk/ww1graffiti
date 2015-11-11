@@ -1,0 +1,51 @@
+<!-- <%= months = [ '', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ] %> -->
+
+<table>
+ <tr>
+  <td><strong>Name:</strong></td>
+  <td><%= @graffiti.surname %>, <%= @graffiti.forenames %></td>
+ </tr>
+ <tr>
+  <td><strong>Rank:</strong></td>
+  <td><%= @graffiti.rank %></td>
+ </tr>
+ <tr>
+  <td><strong>Number:</strong></td>
+  <td><%= @graffiti.soldier_number %></td>
+ </tr>
+ <tr>
+  <td><strong>DOB:</strong></td>
+  <td><%= @graffiti.dob.to_formatted_s(:long) %></td>
+ </tr>
+ <tr>
+  <td><strong>Location:</strong></td>
+  <td><%= @graffiti.location %></td>
+ </tr>
+ <tr>
+  <td><strong>Date of graffiti:</strong></td>
+  <td><%= @graffiti.grafitti_dayinmonth
+# array lookup fails if month is blank
+      if ( @graffiti.graffiti_month.present? )
+      then 
+        months.fetch(@graffiti.graffiti_month, "") 
+      end
+  @graffiti.grafitti_year %></td>
+ </tr>
+ <tr>
+  <td><strong>Survived war:</strong></td>
+  <td><%= @graffiti.survived_war %></td>
+ </tr>
+ <tr>
+  <td><strong>Notes:</strong></td>
+  <td><%= @graffiti.notes %></td>
+
+<% @graffiti.photos.each do |photo| %>
+  <tr>
+    <td><strong>Photo:</strong></td>
+    <td><%= photo.link %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Back to index', graffitis_path %>
+
