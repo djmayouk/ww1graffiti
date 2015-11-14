@@ -54,7 +54,12 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  resources :graffitis do
-    resources :photos
-  end
+  # public view of our graffiti record
+  get '/record/:id', to: 'graffitis#show'
+
+#  namespace :admin do
+    resources :graffitis do
+      resources :photos
+    end
+#  end
 end
