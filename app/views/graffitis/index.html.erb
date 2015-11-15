@@ -10,7 +10,7 @@
   <tr>
    <td><%= graffiti.surname %>, <%= graffiti.forenames %></td>
    <td><%= graffiti.location %></td>
-   <td><%= link_to 'See full record', graffiti_path(graffiti) %></td>
+   <td><%= link_to 'See full record', graffiti_show_path(graffiti) %></td>
    <td><%= link_to 'Edit', edit_graffiti_path(graffiti) %></td>
   </tr>
  <% end %>

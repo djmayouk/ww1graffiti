@@ -20,7 +20,7 @@ class GraffitisController < ApplicationController
 
     @graffiti = Graffiti.new(graffiti_params)
     if @graffiti.save
-      redirect_to @graffiti
+      redirect_to graffiti_show_path(@graffiti)
     else
       render 'new'
     end
@@ -29,7 +29,7 @@ class GraffitisController < ApplicationController
   def update
     @graffiti = Graffiti.find(params[:id])
     if @graffiti.update(graffiti_params)
-      redirect_to @graffiti
+      redirect_to graffiti_show_path(@graffiti)
     else
       render 'edit'
     end

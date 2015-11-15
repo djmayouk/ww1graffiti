@@ -54,12 +54,13 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  # public view of our graffiti record
-  get '/record/:id', to: 'graffitis#show'
+  # public actions for our records
+  get '/record/:id', to: 'graffitis#show', as: 'graffiti_show'
+  get '/list', to: 'graffitis#index', as: 'graffiti_index'
 
-#  namespace :admin do
-    resources :graffitis do
+  scope '/admin' do
+    resources :graffitis, except: [:index, :show] do
       resources :photos
     end
-#  end
+  end
 end
