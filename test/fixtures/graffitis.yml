@@ -6,9 +6,9 @@ one:
   rank: MyString
   soldier_number: MyString
   location: MyString
-  grafitti_year: 
+  graffiti_year: 
   graffiti_month: 
-  grafitti_dayinmonth: 
+  graffiti_dayinmonth: 
   dob: 2015-10-26
   survived_war: MyString
   notes: MyText
@@ -19,9 +19,9 @@ two:
   rank: MyString
   soldier_number: MyString
   location: MyString
-  grafitti_year: 
+  graffiti_year: 
   graffiti_month: 
-  grafitti_dayinmonth: 
+  graffiti_dayinmonth: 
   dob: 2015-10-26
   survived_war: MyString
   notes: MyText

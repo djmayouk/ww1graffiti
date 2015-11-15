@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 20151101192926) do
     t.string   "rank",                limit: 255
     t.string   "soldier_number",      limit: 255
     t.string   "location",            limit: 255
-    t.integer  "grafitti_year",       limit: 4
+    t.integer  "graffiti_year",       limit: 4
     t.integer  "graffiti_month",      limit: 4
-    t.integer  "grafitti_dayinmonth", limit: 4
+    t.integer  "graffiti_dayinmonth", limit: 4
     t.date     "dob"
     t.string   "survived_war",        limit: 255
     t.text     "notes",               limit: 65535

@@ -42,9 +42,9 @@ class GraffitisController < ApplicationController
                                        :rank,
                                        :soldier_number,
                                        :location,
-                                       :grafitti_year,
+                                       :graffiti_year,
                                        :graffiti_month,
-                                       :grafitti_dayinmonth,
+                                       :graffiti_dayinmonth,
                                        :dob,
                                        :survived_war,
                                        :notes)

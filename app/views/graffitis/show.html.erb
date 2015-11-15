@@ -23,13 +23,13 @@
  </tr>
  <tr>
   <td><strong>Date of graffiti:</strong></td>
-  <td><%= @graffiti.grafitti_dayinmonth
+  <td><%= @graffiti.graffiti_dayinmonth
 # array lookup fails if month is blank
       if ( @graffiti.graffiti_month.present? )
       then
         months.fetch(@graffiti.graffiti_month, "")
       end
-  @graffiti.grafitti_year %></td>
+  @graffiti.graffiti_year %></td>
  </tr>
  <tr>
   <td><strong>Survived war:</strong></td>
