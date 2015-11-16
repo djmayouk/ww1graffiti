@@ -1,19 +1,38 @@
-<h1>List of all graffiti</h1>
+<div class="row">
+  <div class="large-12 columns">
+    <h1>List of all graffiti</h1>
+  </div>
+</div>
 
-<table>
- <tr>
-  <th>Name</th>
-  <th>Location</th>
- </tr>
+<div class="row">
+    <div class="large-4 medium-4 small-4 columns">
+      <strong>Name</strong>
+    </div>
+    <div class="large-4 medium-4 small-4 columns">
+      <strong>Location</strong>
+    </div>
+    <div class="large-4 medium-4 small-4 columns">
+      <strong>Actions</strong>
+    </div>
+  </div>
 
  <% @graffitis.each do |graffiti| %>
-  <tr>
-   <td><%= graffiti.surname %>, <%= graffiti.forenames %></td>
-   <td><%= graffiti.location %></td>
-   <td><%= link_to 'See full record', graffiti_show_path(graffiti) %></td>
-   <td><%= link_to 'Edit', edit_graffiti_path(graffiti) %></td>
-  </tr>
+  <div class="row">
+    <div class="large-4 medium-4 small-4 columns">
+      <%= graffiti.surname %>, <%= graffiti.forenames %>
+    </div>
+    <div class="large-4 medium-4 small-4 columns">
+      <%= graffiti.location %>
+    </div>
+    <div class="large-4 medium-4 small-4 columns">
+      <%= link_to 'See full record', graffiti_show_path(graffiti), class: 'small radius button' %>
+      <%= link_to 'Edit', edit_graffiti_path(graffiti), class: 'small radius button' %></td>
+    </div>
+  </div>
  <% end %>
-</table>
 
-<%= link_to 'Add a record', new_graffiti_path %>
+<div class="row">
+  <div class="large-12 columns">
+    <%= link_to 'Add a record', new_graffiti_path, class: 'small radius button' %>
+  </div>
+</div>
