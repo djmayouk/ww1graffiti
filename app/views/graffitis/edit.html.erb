@@ -11,14 +11,14 @@
   <div class="row">
     <div class="large-4 medium-4 columns">
       <%= g.label :link %>
-      <%= g.text_field :link %>
+      <%= g.text_field :link, size: 35 %>
     </div>
     <div class="large-8 medium-8 columns">
-      <%= g.submit('Update', class: 'small radius button') %>
+      <%= g.submit('Update', class: 'tiny radius button') %>
       <%= link_to 'Delete', [photo.graffiti, photo],
                    method: :delete,
                    data: { confirm: 'Are you sure?' },
-                   class: 'small radius button' %>
+                   class: 'tiny radius button' %>
     </div>
   </div>
   <% end %>
@@ -29,10 +29,10 @@
   <div class="row">
     <div class="large-4 medium-4 columns">
       <%= h.label :link %>
-      <%= h.text_field :link %>
+      <%= h.text_field :link, size: 35 %>
     </div>
     <div class="large-8 medium-8 columns">
-      <%= h.submit('Add', class: 'small radius button') %>
+      <%= h.submit('Add', class: 'tiny radius button') %>
     </div>
   </div>
   <% end %>
