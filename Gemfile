@@ -28,6 +28,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Flickr access
 gem 'flickraw'
 
+# Facebook login
+gem 'omniauth-facebook', '~> 1.4.1'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

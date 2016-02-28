@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+#  get 'sessions/create'
+
+#  get 'sessions/destroy'
+
+#  get 'home/show'
+
   get 'static_pages/home'
 
   get 'static_pages/about'
@@ -58,6 +64,15 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  # Facebook login integration
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+
+  resources :sessions, only: [:create, :destroy]
+#  resource :home, only: [:show]
+
 
   # public actions for our records
   get '/record/:id', to: 'graffitis#show', as: 'graffiti_show'
