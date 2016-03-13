@@ -16,7 +16,8 @@
     </div>
   </div>
 
- <% @graffitis.each do |graffiti| %>
+  <% graf = Graffiti.order(:location, surname: :asc)
+     graf.each do |graffiti| %>
   <div class="row">
     <div class="large-4 medium-4 small-4 columns">
       <%= graffiti.surname %>, <%= graffiti.forenames %>
