@@ -1,4 +1,6 @@
 class GraffitisController < ApplicationController
+  before_action :admin_user, only: [:new,:edit,:create,:update]
+
   def index
     @graffitis = Graffiti.all
   end

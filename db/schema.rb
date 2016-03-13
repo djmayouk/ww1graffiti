@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160228181549) do
+ActiveRecord::Schema.define(version: 20160313113518) do
 
   create_table "graffitis", force: :cascade do |t|
     t.string   "surname",             limit: 255
@@ -45,8 +45,9 @@ ActiveRecord::Schema.define(version: 20160228181549) do
     t.string   "name",             limit: 255
     t.string   "oauth_token",      limit: 255
     t.datetime "oauth_expires_at"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+    t.boolean  "admin",                        default: false
   end
 
   add_foreign_key "photos", "graffitis"
