@@ -1,71 +1,49 @@
-<!-- <%= months = [ '', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ] %> -->
+<!-- <%= months = [ '', 'January', 'February', 'March', 'April', 'May', 'June','July','August','September','October','November','December' ] %> -->
 
   <div class="row">
-    <div class="large-6 medium-6 columns">
-      <strong>Name:</strong>
-      <%= @graffiti.surname %>, <%= @graffiti.forenames %>
+    <div class="large-12 columns">
+      <ul class="large-block-grid-2">
+        <li><% @graffiti.photos.each do |photo| %>
+          <%= photo.link.html_safe %>
+          <% end %></li>
+        <li>
+          <strong>Name:</strong>
+          <%= @graffiti.surname %>, <%= @graffiti.forenames %>
+        <br />
+          <strong>Rank:</strong>
+          <%= @graffiti.rank %>
+        <br />
+          <strong>Number:</strong>
+          <%= @graffiti.soldier_number %>
+        <br />
+          <strong>DOB:</strong>
+          <%= @graffiti.dob.to_formatted_s(:long) if @graffiti.dob.present? %>
+        <br />
+          <strong>Location:</strong>
+          <%= @graffiti.location %>
+        <br />
+          <strong>Date of graffiti:</strong>
+          <%= @graffiti.graffiti_dayinmonth
+          # array lookup fails if month is blank
+          if ( @graffiti.graffiti_month.present? )
+          then
+            months.fetch(@graffiti.graffiti_month, "")
+          end
+          @graffiti.graffiti_year %>
+        <br />
+          <strong>Survived war:</strong>
+          <%= @graffiti.survived_war %>
+        <br />
+          <strong>Notes:</strong>
+          <%= @graffiti.notes %>
+        </li>
+      </ul>
     </div>
   </div>
-  <div class="row">
-    <div class="large-6 medium-6 columns">
-      <strong>Rank:</strong>
-      <%= @graffiti.rank %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="large-6 medium-6 columns">
-      <strong>Number:</strong>
-      <%= @graffiti.soldier_number %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="large-6 medium-6 columns">
-      <strong>DOB:</strong>
-      <%= @graffiti.dob.to_formatted_s(:long) if @graffiti.dob.present? %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="large-6 medium-6 columns">
-      <strong>Location:</strong>
-      <%= @graffiti.location %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="large-6 medium-6 columns">
-      <strong>Date of graffiti:</strong>
-  <%= @graffiti.graffiti_dayinmonth
-      # array lookup fails if month is blank
-      if ( @graffiti.graffiti_month.present? )
-      then
-        months.fetch(@graffiti.graffiti_month, "")
-      end
-  @graffiti.graffiti_year %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="large-6 medium-6 columns">
-      <strong>Survived war:</strong>
-      <%= @graffiti.survived_war %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="large-6 medium-6 columns">
-      <strong>Notes:</strong>
-      <%= @graffiti.notes %>
-    </div>
-  </div>
-
-<% @graffiti.photos.each do |photo| %>
-  <div class="row">
-    <div class="large-6 medium-6 columns">
-      <strong>Photo:</strong>
-      <%= photo.link.html_safe %>
-    </div>
-  </div>
-<% end %>
 
   <div class="row">
     <div class="large-12 columns">
       <%= link_to 'Back to index', graffiti_index_path, class: 'small radius button' %>
     </div>
   </div>
+
