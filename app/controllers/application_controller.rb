@@ -20,9 +20,11 @@ class ApplicationController < ActionController::Base
 
     # Confirm user is an administrator
     def admin_user
-      unless current_user.admin?
-        flash[:danger] = "You are not authorised."
-        redirect_to '/'
+      unless logged_in_user
+        unless current_user.admin?
+          flash[:danger] = "You are not authorised."
+          redirect_to '/'
+        end
       end
     end
 
