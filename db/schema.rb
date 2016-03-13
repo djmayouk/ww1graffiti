@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160313113518) do
+ActiveRecord::Schema.define(version: 20160313153752) do
 
   create_table "graffitis", force: :cascade do |t|
     t.string   "surname",             limit: 255
@@ -25,8 +25,9 @@ ActiveRecord::Schema.define(version: 20160313113518) do
     t.date     "dob"
     t.string   "survived_war",        limit: 255
     t.text     "notes",               limit: 65535
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.boolean  "deleted",                           default: false
   end
 
   create_table "photos", force: :cascade do |t|

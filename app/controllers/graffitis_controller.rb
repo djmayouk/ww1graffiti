@@ -1,5 +1,5 @@
 class GraffitisController < ApplicationController
-  before_action :admin_user, only: [:new,:edit,:create,:update]
+  before_action :admin_user, only: [:new,:edit,:create,:update,:destroy]
 
   def index
     @graffitis = Graffiti.all
@@ -37,6 +37,14 @@ class GraffitisController < ApplicationController
     end
   end
 
+  def destroy
+    @graffiti = Graffiti.find(params[:id])
+    @graffiti.deleted = 1
+    @graffiti.save
+
+    redirect_to '/list'
+  end
+
   private
     def graffiti_params
       params.require(:graffiti).permit(:surname,
@@ -49,6 +57,7 @@ class GraffitisController < ApplicationController
                                        :graffiti_dayinmonth,
                                        :dob,
                                        :survived_war,
-                                       :notes)
+                                       :notes,
+                                       :deleted)
     end
 end
