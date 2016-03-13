@@ -2,7 +2,8 @@ class GraffitisController < ApplicationController
   before_action :admin_user, only: [:new,:edit,:create,:update,:destroy]
 
   def index
-    @graffitis = Graffiti.all
+    @graffitis = Graffiti.where(deleted: 0)
+    @graffitis = @graffitis.order(:location, surname: :asc)
   end
 
   def show

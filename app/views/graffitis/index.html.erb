@@ -5,40 +5,42 @@
 </div>
 
 <div class="row">
-    <div class="large-4 medium-4 small-4 columns">
+    <div class="large-3 medium-3 small-3 columns">
       <strong>Name</strong>
     </div>
-    <div class="large-4 medium-4 small-4 columns">
+    <div class="large-3 medium-3 small-3 columns">
       <strong>Location</strong>
     </div>
-    <div class="large-4 medium-4 small-4 columns">
+    <div class="large-6 medium-6 small-6 columns">
       <strong>Actions</strong>
     </div>
   </div>
 
-  <% graf = Graffiti.order(:location, surname: :asc)
-     graf = graf.where(deleted: 0)
-     graf.each do |graffiti| %>
+  <% @graffitis.each do |graffiti| %>
   <div class="row">
-    <div class="large-4 medium-4 small-4 columns">
+    <div class="large-3 medium-3 small-3 columns">
       <%= graffiti.surname %>, <%= graffiti.forenames %>
     </div>
-    <div class="large-4 medium-4 small-4 columns">
+    <div class="large-3 medium-3 small-3 columns">
       <%= graffiti.location %>
     </div>
-    <div class="large-4 medium-4 small-4 columns">
+    <div class="large-6 medium-6 small-6 columns">
       <%= link_to 'See full record', graffiti_show_path(graffiti), class: 'small radius button' %>
-      <%= link_to 'Edit', edit_graffiti_path(graffiti), class: 'small radius button' %></td>
-      <%= link_to 'Delete', [graffiti],
-                   method: :delete,
-                   class: 'small radius button',
-                   data: { confirm: 'Are you sure?' } %>
+      <%if current_user %>
+        <%= link_to 'Edit', edit_graffiti_path(graffiti), class: 'small radius button' %></td>
+        <%= link_to 'Delete', [graffiti],
+                     method: :delete,
+                     class: 'small radius button',
+                     data: { confirm: 'Are you sure?' } %>
+      <% end %>
     </div>
   </div>
  <% end %>
 
+<%if current_user %>
 <div class="row">
   <div class="large-12 columns">
     <%= link_to 'Add a record', new_graffiti_path, class: 'small radius button' %>
   </div>
 </div>
+<% end %>
