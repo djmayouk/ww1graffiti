@@ -73,6 +73,8 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :destroy]
 #  resource :home, only: [:show]
 
+  # redirect requests for /admin to login URL
+  get '/admin', to: redirect('/auth/facebook')
 
   # public actions for our records
   get '/record/:id', to: 'graffitis#show', as: 'graffiti_show'
