@@ -4,7 +4,7 @@
     <div class="large-12 columns">
       <ul class="large-block-grid-2">
         <li><% @graffiti.photos.each do |photo| %>
-          <%= photo.link.html_safe %>
+          <img src="<%= photo.link %>">
           <% end %></li>
         <li>
           <strong>Name:</strong>

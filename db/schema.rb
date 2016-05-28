@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160313153752) do
+ActiveRecord::Schema.define(version: 20160508155331) do
 
   create_table "graffitis", force: :cascade do |t|
     t.string   "surname",             limit: 255
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20160313153752) do
     t.integer  "graffiti_id", limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "flickr_id",   limit: 8
   end
 
   add_index "photos", ["graffiti_id"], name: "index_photos_on_graffiti_id", using: :btree
