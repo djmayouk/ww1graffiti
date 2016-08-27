@@ -15,7 +15,6 @@
       <strong>Actions</strong>
     </div>
   </div>
-
   <% @graffitis.each do |graffiti| %>
   <div class="row">
     <div class="large-3 medium-3 small-3 columns">
@@ -26,21 +25,25 @@
     </div>
     <div class="large-6 medium-6 small-6 columns">
       <%= link_to 'See full record', graffiti_show_path(graffiti), class: 'small radius button' %>
-      <%if current_user %>
+      <% if current_user %>
+        <% if current_user.admin? %>
         <%= link_to 'Edit', edit_graffiti_path(graffiti), class: 'small radius button' %></td>
         <%= link_to 'Delete', [graffiti],
                      method: :delete,
                      class: 'small radius button',
                      data: { confirm: 'Are you sure?' } %>
+        <% end %>
       <% end %>
     </div>
   </div>
  <% end %>
 
 <%if current_user %>
+  <%if current_user.admin? %>
 <div class="row">
   <div class="large-12 columns">
     <%= link_to 'Add a record', new_graffiti_path, class: 'small radius button' %>
   </div>
 </div>
+  <% end %>
 <% end %>
