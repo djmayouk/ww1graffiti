@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160508155331) do
+ActiveRecord::Schema.define(version: 20170319125805) do
 
   create_table "graffitis", force: :cascade do |t|
     t.string   "surname",             limit: 255
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(version: 20160508155331) do
     t.datetime "updated_at",                                        null: false
     t.boolean  "deleted",                           default: false
   end
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.text     "notes",       limit: 65535
+    t.integer  "graffiti_id", limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "locations", ["graffiti_id"], name: "index_locations_on_graffiti_id", using: :btree
 
   create_table "photos", force: :cascade do |t|
     t.string   "link",        limit: 1024
@@ -52,5 +62,5 @@ ActiveRecord::Schema.define(version: 20160508155331) do
     t.boolean  "admin",                        default: false
   end
 
-  add_foreign_key "photos", "graffitis"
+  add_foreign_key "locations", "graffitis"
 end
